@@ -1,6 +1,12 @@
 import { combineReducers } from 'redux';
 
-const tweets = (tweets = [], action) => {
+import { ADD_TWEETS } from './actions';
+
+const tweets = (tweets = [], { type, payload }) => {
+  if (type === ADD_TWEETS) {
+    return [...tweets, ...payload.tweets];
+  }
+
   return tweets;
 };
 
